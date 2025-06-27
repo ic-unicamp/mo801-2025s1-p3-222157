@@ -62,3 +62,16 @@ Apesar dos avanços, alguns pontos não foram completamente superados:
 Ao final, o tempo de execução do código na plataforma LiteX foi reduzido de aproximadamente 30 segundos (para uma entrada com 500 dados) para cerca de 2 segundos, representando uma economia superior a 90% no tempo total. Para uma avaliação mais precisa do ganho de desempenho, o ideal seria realizar um novo profiling após a inclusão do periférico acelerador. No entanto, isso não é viável na plataforma LiteX, já que ferramentas como o gprof não são compatíveis com o ambiente utilizado.
 
 Este projeto foi importante didaticamente para aprender de forma aplicada os conceitos de profiling, paralelismo e aceleração por hardware. A plataforma LiteX demonstrou grande flexibilidade, ainda que exija atenção aos detalhes de integração e síntese. Além disso, o uso do **profiling** ajudou a garantir que o esforço de hardware estivesse concentrado exatamente onde mais impactaria no desempenho final.
+
+## ▶️ Como executar o projeto
+
+Para rodar este projeto com o periférico acelerador `PowerSum`, siga os passos abaixo:
+
+   - Substitua o arquivo `main.c` em `litex/litex/soc/software/bios/main.c` pelo fornecido.  
+   - Coloque o arquivo `powersum.py` fornecido em `litex/litex/soc/cores/powersum.py`.  
+   - Edite o arquivo `litex_sim.py` em `litex/litex/tools/litex_sim.py` pelo fornecido
+   - No terminal, execute:
+     ```bash
+     litex_sim
+     ```
+   - Quando a simulação terminar o boot e exibir o prompt da BIOS LiteX, pressione Enter para que o código do main.c seja executado automaticamente.
